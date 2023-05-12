@@ -21,7 +21,7 @@ public class Indicator extends javax.swing.JPanel {
         setBackground(Color.WHITE);
         setOpaque(false);
 
-        Component[] components = new Component[]{new PanelTest(1), new PanelTest(2), new PanelTest(3), new PanelTest(4)};
+        Component[] components = new Component[]{new PanelTest(1), new PanelLocation(), new PanelTest(3), new PanelTest(4)};
         panelSlider.setSliderComponent(components);
         progressIndicator.initSlider(panelSlider);
     }
@@ -88,9 +88,9 @@ public class Indicator extends javax.swing.JPanel {
                     .addComponent(progressIndicator, javax.swing.GroupLayout.DEFAULT_SIZE, 689, Short.MAX_VALUE)
                     .addComponent(panelSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
