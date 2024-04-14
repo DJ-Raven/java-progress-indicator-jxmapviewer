@@ -1,5 +1,7 @@
 package test;
 
+import raven.progressindicator.map.EventLocationSelected;
+
 /**
  *
  * @author RAVEN
@@ -11,6 +13,12 @@ public class PanelLocation extends javax.swing.JPanel {
      */
     public PanelLocation() {
         initComponents();
+        mapCustom1.setEvent(new EventLocationSelected() {
+            @Override
+            public void onSelected(String location) {
+                txt.setText(location);
+            }
+        });
         mapCustom1.init();
     }
 
@@ -24,6 +32,8 @@ public class PanelLocation extends javax.swing.JPanel {
     private void initComponents() {
 
         mapCustom1 = new raven.progressindicator.map.MapCustom();
+        jLabel1 = new javax.swing.JLabel();
+        txt = new javax.swing.JTextField();
 
         setOpaque(false);
 
@@ -31,12 +41,17 @@ public class PanelLocation extends javax.swing.JPanel {
         mapCustom1.setLayout(mapCustom1Layout);
         mapCustom1Layout.setHorizontalGroup(
             mapCustom1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 583, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         mapCustom1Layout.setVerticalGroup(
             mapCustom1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 295, Short.MAX_VALUE)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
+
+        jLabel1.setText("Address :");
+
+        txt.setEditable(false);
+        txt.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -44,20 +59,31 @@ public class PanelLocation extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(mapCustom1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(mapCustom1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txt, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(mapCustom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addComponent(mapCustom1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txt, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private raven.progressindicator.map.MapCustom mapCustom1;
+    private javax.swing.JTextField txt;
     // End of variables declaration//GEN-END:variables
 }
